@@ -29,15 +29,15 @@ def generate_launch_description():
         arguments=['-d', LaunchConfiguration('rvizconfig')],
     )
     
- spawn_entity = launch_ros.actions.Node(
-  package='gazebo_ros',
-  executable='spawn_entity.py',
-  arguments=['-entity', 'sam_bot', '-topic', 'robot_description'],
-  output='screen'
-)
+    spawn_entity = launch_ros.actions.Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=['-entity', 'sam_bot', '-topic', 'robot_description'],
+        output='screen'
+    )
 
     return launch.LaunchDescription([
-        launch.actions.,
+
         launch.actions.DeclareLaunchArgument(name='model', default_value=default_model_path,
                                             description='Absolute path to robot urdf file'),
         launch.actions.DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path,
